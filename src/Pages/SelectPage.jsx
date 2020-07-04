@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Autocomplete } from "@material-ui/lab";
 import {
   TextField,
@@ -11,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { Create } from "@material-ui/icons";
 import MasonryList from "../components/MasonaryGrid";
+import offlineData from "../memeData";
 
 export default function SelectPage() {
   const [completeMemeList, setCompleteMemeList] = useState([]);
@@ -20,8 +22,9 @@ export default function SelectPage() {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
       .then((data) => {
-        setCompleteMemeList(data.data.memes);
-        setDisplayMemeList(data.data.memes);
+        const completeData = data.data.memes.concat(offlineData);
+        setCompleteMemeList(completeData);
+        setDisplayMemeList(completeData);
       });
   }, []);
 
@@ -74,14 +77,23 @@ export default function SelectPage() {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  startIcon={<Create />}
+                <Link
+                  to={{
+                    pathname: `/edit`,
+                    completeMemeList: completeMemeList,
+                    selectedMeme: meme,
+                  }}
                   style={{ width: "100%" }}
                 >
-                  Create
-                </Button>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<Create />}
+                    fullWidth
+                  >
+                    Create
+                  </Button>
+                </Link>
               </CardActions>
             </Card>
           ))}

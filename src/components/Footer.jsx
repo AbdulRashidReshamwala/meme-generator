@@ -17,10 +17,7 @@ export default function Footer() {
           💙
         </span>{" "}
         and {"</>"} by
-        <Link
-          href="https://github.com/AbdulRashidReshamwala/material-portfolio"
-          target="_blank"
-        >
+        <Link href="https://abdulrashid.dev" target="_blank">
           <Typography display="inline" color="secondary" component="span">
             {" "}
             Abdul Rashid
