@@ -24,9 +24,9 @@ function EditPage({ location }) {
   const [meme, setMeme] = useState(location.selectedMeme);
   const [result, setResult] = useState();
   const [texts, setText] = useState(Array(meme.box_count).fill(""));
-  const [colors, setColors] = useState(Array(meme.box_count).fill("#000000"));
+  const [colors, setColors] = useState(Array(meme.box_count).fill("#ffffff"));
   const [outlineColors, setOutlineColors] = useState(
-    Array(meme.box_count).fill("#ffffff")
+    Array(meme.box_count).fill("#000000")
   );
   const [fontFamily, setFontFamily] = useState("impact");
   const [fontSize, setFontSize] = useState(50);
@@ -207,7 +207,7 @@ function EditPage({ location }) {
                     onChange={(_, value) => setFontSize(value)}
                   />
                   <FormControl component="fieldset">
-                    <FormLabel component="legend">Fobt Family</FormLabel>
+                    <FormLabel component="legend">Font Family</FormLabel>
                     <RadioGroup
                       aria-label="Font Family"
                       name="fontFamily"

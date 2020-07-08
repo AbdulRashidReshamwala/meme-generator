@@ -22,7 +22,7 @@ export default function SelectPage() {
     fetch("https://api.imgflip.com/get_memes")
       .then((res) => res.json())
       .then((data) => {
-        const completeData = data.data.memes.concat(offlineData);
+        const completeData = offlineData.concat(data.data.memes);
         setCompleteMemeList(completeData);
         setDisplayMemeList(completeData);
       });
@@ -71,7 +71,12 @@ export default function SelectPage() {
                 <Typography variant="h6" gutterBottom>
                   {meme.name}
                 </Typography>
-                <img src={meme.url} width="100%" alt={meme.name} />
+                <img
+                  src={meme.url}
+                  width="100%"
+                  alt={meme.name}
+                  loading="lazy"
+                />
                 <Typography color="textSecondary" style={{ marginTop: 2 }}>
                   #{meme.id}
                 </Typography>

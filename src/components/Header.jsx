@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <Container>
       <Link to="/">
-        <Typography variant="h2">{"🐸"}Tera Memes</Typography>
+        <Typography variant="h2">{"🐸"}EzMemes</Typography>
       </Link>
       <Typography variant="h5" color="textSecondary" gutterBottom>
         Make Memes at Lightning Speed {"⚡"}
